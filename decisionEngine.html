@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      rel="noopener"
+      target="_blank"
+      href="decisionEngine.css"
+    />
+    <title>Credit Decision Engine</title>
+  </head>
+  <body>
+    <h1>Credit Decision Engine</h1>
+    <form id="loan-form">
+      <label for="credit-modifiers">Credit Modifiers:</label>
+      <br />
+      <select id="creditModifiers" name="creditModifiers">
+        <option value="debt">49002010965 - debt</option>
+        <option value="100">49002010976 - segment 1</option>
+        <option value="300">49002010987 - segment 2</option>
+        <option value="1000">49002010998 - segment 3</option>
+      </select>
+      <br />
+      <label for="loan-sum">Loan Sum:</label>
+      <br />
+      <input
+        type="number"
+        id="loanSum"
+        name="loanSum"
+        min="2000"
+        max="10000"
+        value="5000"
+      />
+      <br />
+      <label for="loan-period">Loan Period:</label>
+      <br />
+      <input
+        type="number"
+        id="loanPeriod"
+        name="loanPeriod"
+        min="12"
+        max="60"
+        value="24"
+      />
+      <br />
+      <br />
+      <button type="submit" id="loan-form-button" name="loan-form-button">
+        Calculate
+      </button>
+    </form>
+    <script>
+      document.querySelector("button").addEventListener("click", (e) => {
+        e.preventDefault();
+        const creditModifiers =
+          document.querySelector("#creditModifiers").value;
+
+        const loanSum = document.querySelector("#loanSum").value;
+
+        const loanPeriod = document.querySelector("#loanPeriod").value;
+
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            creditModifiers,
+            loanSum,
+            loanPeriod,
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => console.log(data));
+      });
+    </script>
+  </body>
+</html>
