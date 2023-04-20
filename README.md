@@ -46,7 +46,7 @@ There is also a localhost:3000/calculate-loan endpoint for a separate JSON api o
 
 # Images
 localhost:3000  
-![image](https://user-images.githubusercontent.com/71014196/233266408-0e27c193-6171-4779-9e75-0c1aa3060fe4.png)  
+![image](https://user-images.githubusercontent.com/71014196/233327180-8c1a997b-65b8-4a76-8e01-e180d8f059a9.png)  
 localhost:3000 console with same inputs as last image  
 ![image](https://user-images.githubusercontent.com/71014196/233266515-2728acc0-091f-487c-9809-2fe98ad797d9.png)  
 localhost:3000/loan-decision  
