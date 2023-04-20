@@ -17,6 +17,7 @@ function calculateLoanDecision(creditModifier, loanSum, loanPeriod) {
       minLoanSum -= 100;
       creditDecision = (creditModifier / minLoanSum) * loanPeriod;
     }
+    // Check for the next month until credit decision is 1
     if (creditDecision < 1) {
       let month = loanPeriod + 1;
       while (creditDecision < 1 && month <= 60) {

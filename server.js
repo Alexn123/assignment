@@ -10,16 +10,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/decisionEngine.html");
 });
 
-// Serve the decisionEngine.js file
-app.get("/decisionEngine.js", (req, res) => {
-  res.sendFile(__dirname + "/decisionEngine.js");
-});
-
-// Serve the decisionEngine.js file
-app.get("/apirequest.js", (req, res) => {
-  res.sendFile(__dirname + "/apirequest.js");
-});
-
 // Serve the css file
 app.get("/decisionEngine.css", (req, res) => {
   res.sendFile(__dirname + "/decisionEngine.css");
