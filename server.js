@@ -25,6 +25,8 @@ app.get("/decisionEngine.css", (req, res) => {
   res.sendFile(__dirname + "/decisionEngine.css");
 });
 
+
+// Post data 
 let loanData = {};
 
 app.post("/", async (req, res) => {
@@ -43,6 +45,7 @@ app.post("/", async (req, res) => {
   }
 });
 
+// Just in case to get a separate JSON api endpoint for the calculated decision 
 app.get("/calculate-loan", (req, res) => {
   const { creditModifiers, loanSum, loanPeriod } = loanData;
   const result = api.calculateLoan(creditModifiers, loanSum, loanPeriod);
